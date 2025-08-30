@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "../components/Navbar";
+// --- FIX: Corrected the icon import to use react-icons ---
+import { FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -132,7 +134,8 @@ const LandingPage = () => {
           </p>
           <p className="text-base md:text-lg text-gray-700">
             The initiatives are led by a passionate team: Ms. Dilseerat Kaur
-            (CGC), Mr. Gautam Tanwar (IIT), <br/>Mr. Sparsh Sharma (UU), and Mr. Abhirash Garg (ABES).
+            (CGC), Mr. Gautam Tanwar (IIT), <br />
+            Mr. Sparsh Sharma (UU), and Mr. Abhirash Garg (ABES).
           </p>
         </div>
       </section>
@@ -250,23 +253,22 @@ const LandingPage = () => {
       </section>
 
       {/* Call to Action for Companies/Colleges */}
-<section className="py-16 md:py-24 bg-white px-4">
-  <div className="max-w-4xl mx-auto text-center animate-fade-in">
-    <h2 className="text-4xl font-poppins font-bold text-gray-700 mb-6">
-      Empower Your Organization
-    </h2>
-    <p className="text-lg text-gray-700 mb-8">
-      Be part of a growing ecosystem where companies and colleges connect with ambitious students for internships and opportunities
-    </p>
-    <button
-      onClick={handleRegisterClick}
-      className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg text-lg"
-    >
-      Register Your Organization
-    </button>
-  </div>
-</section>
-
+      <section className="py-16 md:py-24 bg-white px-4">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <h2 className="text-4xl font-poppins font-bold text-gray-700 mb-6">
+            Empower Your Organization
+          </h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Be part of a growing ecosystem where companies and colleges connect with ambitious students for internships and opportunities
+          </p>
+          <button
+            onClick={handleRegisterClick}
+            className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg text-lg"
+          >
+            Register Your Organization
+          </button>
+        </div>
+      </section>
 
       {/* --- CONTACT US SECTION--- */}
       <section
@@ -290,43 +292,79 @@ const LandingPage = () => {
       </section>
 
       {/* Footer Section */}
+      {/* Footer Section */}
 <footer className="bg-white text-gray-800 py-8 text-center border-t border-gray-200">
   <div className="max-w-7xl mx-auto px-4">
-    
-    {/* --- NEW: Disclaimer Section --- */}
+    {/* Disclaimer */}
     <div className="mb-8 p-6 bg-white rounded-lg">
-        <h4 className="font-bold text-lg text-gray-700 mb-4">⚖️ Disclaimer – InternSaathi</h4>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4 text-xs text-gray-700">
-            <p>
-                <strong>📌 Platform Role:</strong> A connecting platform, not an employer.
-            </p>
-            <p>
-                <strong>👥 User Responsibility:</strong> Users must verify all details.
-            </p>
-            <p>
-                <strong>📊 No Guarantee:</strong> We do not guarantee any outcomes.
-            </p>
-            <p>
-                <strong>🛡️ Liability:</strong> Not responsible for contracts or disputes.
-            </p>
-            <p>
-                <strong>🔒 Safety First:</strong> Share personal details with caution.
-            </p>
-            <p>
-                <strong>🚫 No Misuse:</strong> Fraud may lead to account suspension.
-            </p>
-        </div>
+      <h4 className="font-bold text-lg text-gray-700 mb-4">
+        ⚖️ Disclaimer – InternSaathi
+      </h4>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4 text-xs text-gray-700">
+        <p><strong>📌 Platform Role:</strong> A connecting platform, not an employer.</p>
+        <p><strong>👥 User Responsibility:</strong> Users must verify all details.</p>
+        <p><strong>📊 No Guarantee:</strong> We do not guarantee any outcomes.</p>
+        <p><strong>🛡️ Liability:</strong> Not responsible for contracts or disputes.</p>
+        <p><strong>🔒 Safety First:</strong> Share personal details with caution.</p>
+        <p><strong>🚫 No Misuse:</strong> Fraud may lead to account suspension.</p>
+      </div>
     </div>
 
+    {/* Copyright */}
     <p className="text-gray-600">
-      &copy; {new Date().getFullYear()} Internsaathi. All rights reserved.
+      &copy; {new Date().getFullYear()} InternSaathi. All rights reserved.
     </p>
-     <div className="flex justify-center items-center space-x-2 mt-4">
+
+    {/* Powered by Section */}
+    <div className="flex flex-col md:flex-row justify-center items-center gap-2 mt-4">
       <span className="text-gray-600">Powered by</span>
-      {/* --- UPDATED: Made the logo a clickable link --- */}
-      <a href="https://www.sunsysglobal.com/" target="_blank" rel="noopener noreferrer">
-        <img src="/logo2.jpg" alt="Sunsys Logo" className="h-22 w-25" />
+      <a
+        href="https://www.sunsysglobal.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="/logo2.jpg" alt="Sunsys Logo" className="h-18 w-20" />
       </a>
+      {/* Sunsys LinkedIn */}
+      <a
+        href="https://www.linkedin.com/company/sunsystechsol-pvt-ltd/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-500 hover:text-blue-700 transition-colors duration-300"
+      >
+        <FaLinkedin size={22} />
+      </a>
+    </div>
+
+    {/* Social Media Links */}
+    <div className="mt-6">
+      <p className="text-gray-600 font-medium mb-2">Follow us on</p>
+      <div className="flex justify-center items-center space-x-6">
+        <a
+          href="https://www.linkedin.com/company/internsaathi"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
+        >
+          <FaLinkedin size={24} />
+        </a>
+        <a
+          href="https://www.instagram.com/intern.saathi?igsh=MTNzaXE0eHFtOXNyZw%3D%3D&utm_source=ig_contact_invite"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-500 hover:text-pink-400 transition-colors duration-300"
+        >
+          <FaInstagram size={24} />
+        </a>
+        <a
+          href="https://x.com/InternSaathi?t=p1eTe0LJEppzSsF_mxMmjg&s=09"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-500 hover:text-sky-500 transition-colors duration-300"
+        >
+          <FaTwitter size={24} />
+        </a>
+      </div>
     </div>
   </div>
 </footer>
@@ -336,3 +374,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
