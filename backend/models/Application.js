@@ -17,10 +17,9 @@ const applicationSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    college: { // FIX: The 'college' field is now optional
+    college: { 
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      // 'required: true' has been removed from this field
     },
     applicationDate: {
       type: Date,
@@ -35,6 +34,12 @@ const applicationSchema = mongoose.Schema(
       type: String,
     },
     resumeUrl: {
+      type: String,
+    },
+    linkedinUrl: {
+      type: String,
+    },
+    githubUrl: {
       type: String,
     },
   },

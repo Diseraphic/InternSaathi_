@@ -47,7 +47,7 @@ const ManageApplicantsPage = () => {
       );
     } catch (err) {
       // Display the specific error from the backend (e.g., deadline passed)
-      alert(err.response?.data?.message || 'Failed to update status.');
+      console.error(err.response?.data?.message || 'Failed to update status.');
     }
   };
 
@@ -125,13 +125,40 @@ const ManageApplicantsPage = () => {
                         <span className="font-semibold not-italic">Cover Letter:</span> "{app.coverLetter}"
                       </p>
                     )}
-                    {app.resumeUrl && (
-                      <a href={app.resumeUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-600 hover:text-emerald-800 font-medium underline mt-2 inline-block">
-                        View Resume
-                      </a>
-                    )}
+                    <div className="flex flex-col space-y-2 mt-2">
+                   {/*}   {app.resumeUrl && (
+                        <a 
+                          href={applicationService.downloadResume(app._id)}
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-sm text-emerald-600 hover:text-emerald-800 font-medium underline inline-block"
+                        >
+                          Download Resume
+                        </a>
+                      )}*/}
+                      {app.githubUrl && (
+                        <a 
+                          href={app.githubUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-sm text-gray-800 hover:text-gray-900 font-medium underline inline-block"
+                        >
+                          View GitHub
+                        </a>
+                      )}
+                      {app.linkedinUrl && (
+                        <a 
+                          href={app.linkedinUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-sm text-blue-600 hover:text-blue-800 font-medium underline inline-block"
+                        >
+                          View LinkedIn
+                        </a>
+                      )}
+                    </div>
                   </div>
-
+                  
                   {/* Status Management */}
                   <div className="md:text-right mt-4 md:mt-0">
                     <p className="text-gray-700 font-semibold mb-2">Current Status:</p>
@@ -148,6 +175,7 @@ const ManageApplicantsPage = () => {
                         <option value="Reviewed">Reviewed</option>
                         <option value="Accepted">Accepted</option>
                         <option value="Rejected">Rejected</option>
+                        <option value="Withdrawn">Withdrawn</option>
                       </select>
                     </div>
                   </div>

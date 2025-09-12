@@ -211,7 +211,7 @@ const EditInternshipPage = () => {
 
           {/* Description */}
           <div className="md:col-span-2">
-            <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="description">Job Description</label>
+            <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="description">Internship Description</label>
             <textarea id="description" name="description" value={formData.description} onChange={handleChange} required rows="4"
               className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition duration-200"
               placeholder="Provide a detailed description of the internship responsibilities, requirements, and what the intern will learn."

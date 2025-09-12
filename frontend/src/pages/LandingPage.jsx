@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "../components/Navbar";
-// --- FIX: Corrected the icon import to use react-icons ---
 import { FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const LandingPage = () => {
@@ -273,7 +272,7 @@ const LandingPage = () => {
       {/* --- CONTACT US SECTION--- */}
       <section
         id="contact-us"
-        className="py-12 bg-gradient-to-br from-emerald-50 to-teal-100 px-4 border-t border-gray-100"
+        className="py-8 bg-gradient-to-br from-emerald-50 to-teal-100 px-4 border-t border-gray-100"
       >
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="font-poppins font-semibold text-gray-700 mb-2">
@@ -292,15 +291,14 @@ const LandingPage = () => {
       </section>
 
       {/* Footer Section */}
-      {/* Footer Section */}
-<footer className="bg-white text-gray-800 py-8 text-center border-t border-gray-200">
+<footer className="bg-white text-gray-800 py-4 text-center border-t border-gray-200">
   <div className="max-w-7xl mx-auto px-4">
     {/* Disclaimer */}
-    <div className="mb-8 p-6 bg-white rounded-lg">
-      <h4 className="font-bold text-lg text-gray-700 mb-4">
+    <div className="mb-4 p-4 bg-white rounded-lg">
+      <h4 className="font-bold text-sm text-gray-700 mb-2">
         ⚖️ Disclaimer – InternSaathi
       </h4>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4 text-xs text-gray-700">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-2 text-xs text-gray-700 leading-snug">
         <p><strong>📌 Platform Role:</strong> A connecting platform, not an employer.</p>
         <p><strong>👥 User Responsibility:</strong> Users must verify all details.</p>
         <p><strong>📊 No Guarantee:</strong> We do not guarantee any outcomes.</p>
@@ -311,19 +309,19 @@ const LandingPage = () => {
     </div>
 
     {/* Copyright */}
-    <p className="text-gray-600">
+    <p className="text-gray-600 text-sm">
       &copy; {new Date().getFullYear()} InternSaathi. All rights reserved.
     </p>
 
     {/* Powered by Section */}
-    <div className="flex flex-col md:flex-row justify-center items-center gap-2 mt-4">
-      <span className="text-gray-600">Powered by</span>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-2 mt-2">
+      <span className="text-gray-600 text-sm">Powered by</span>
       <a
         href="https://www.sunsysglobal.com/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="/logo2.jpg" alt="Sunsys Logo" className="h-18 w-20" />
+        <img src="/logo2.jpg" alt="Sunsys Logo" className="h-12 w-16" />
       </a>
       {/* Sunsys LinkedIn */}
       <a
@@ -332,21 +330,21 @@ const LandingPage = () => {
         rel="noopener noreferrer"
         className="text-gray-500 hover:text-blue-700 transition-colors duration-300"
       >
-        <FaLinkedin size={22} />
+        <FaLinkedin size={18} />
       </a>
     </div>
 
     {/* Social Media Links */}
-    <div className="mt-6">
-      <p className="text-gray-600 font-medium mb-2">Follow us on</p>
-      <div className="flex justify-center items-center space-x-6">
+    <div className="mt-3">
+      <p className="text-gray-600 font-medium text-sm mb-1">Follow us on</p>
+      <div className="flex justify-center items-center space-x-4">
         <a
           href="https://www.linkedin.com/company/internsaathi"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
         >
-          <FaLinkedin size={24} />
+          <FaLinkedin size={20} />
         </a>
         <a
           href="https://www.instagram.com/intern.saathi?igsh=MTNzaXE0eHFtOXNyZw%3D%3D&utm_source=ig_contact_invite"
@@ -354,7 +352,7 @@ const LandingPage = () => {
           rel="noopener noreferrer"
           className="text-gray-500 hover:text-pink-400 transition-colors duration-300"
         >
-          <FaInstagram size={24} />
+          <FaInstagram size={20} />
         </a>
         <a
           href="https://x.com/InternSaathi?t=p1eTe0LJEppzSsF_mxMmjg&s=09"
@@ -362,12 +360,13 @@ const LandingPage = () => {
           rel="noopener noreferrer"
           className="text-gray-500 hover:text-sky-500 transition-colors duration-300"
         >
-          <FaTwitter size={24} />
+          <FaTwitter size={20} />
         </a>
       </div>
     </div>
   </div>
 </footer>
+
 
     </div>
   );

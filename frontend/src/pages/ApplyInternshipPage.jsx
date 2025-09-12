@@ -16,11 +16,11 @@ const ApplyInternshipPage = () => {
 
   // Form state
   const [coverLetter, setCoverLetter] = useState('');
-  const [resumeUrl, setResumeUrl] = useState(user?.resume || '');
+  const [resumeFile, setResumeFile] = useState(null);
   const [linkedinUrl, setLinkedinUrl] = useState(user?.linkedin || '');
   const [githubUrl, setGithubUrl] = useState(user?.github || '');
 
-  // --- NEW: Helper function to calculate time since posting ---
+  // Helper function to calculate time since posting
   const timeAgo = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
@@ -74,20 +74,25 @@ const ApplyInternshipPage = () => {
       return;
     }
 
-    try {
-      const applicationData = {
-        coverLetter,
-        resumeUrl,
-        linkedinUrl,
-        githubUrl,
-        internshipDomain: internship.internshipDomain,
-        workType: internship.workType,
-        companyName: internship.companyName,
-      };
+    if (!resumeFile) {
+      setError('Resume file is required.');
+      return;
+    }
 
-      await applicationService.applyForInternship(internshipId, applicationData);
+    try {
+      const formData = new FormData();
+      formData.append('coverLetter', coverLetter);
+      formData.append('resume', resumeFile);
+      formData.append('linkedinUrl', linkedinUrl);
+      formData.append('githubUrl', githubUrl);
+      formData.append('internshipDomain', internship.internshipDomain);
+      formData.append('workType', internship.workType);
+      formData.append('companyName', internship.companyName);
+
+      await applicationService.applyForInternship(internshipId, formData);
       setApplicationSuccess('Your application has been submitted successfully!');
       setCoverLetter('');
+      setResumeFile(null);
       setTimeout(() => navigate('/my-applications'), 2000);
     } catch (err) {
       setError(err.response?.data?.message || err.message || 'Failed to submit application.');
@@ -126,7 +131,6 @@ const ApplyInternshipPage = () => {
         <div className="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
           <h3 className="text-2xl font-bold text-teal-700 mb-2">{internship.title}</h3>
           <p className="text-gray-800 font-semibold mb-1">{internship.companyName}</p>
-          {/* --- NEW: Display how long ago it was posted --- */}
           {internship.createdAt && (
             <p className="text-gray-500 text-xs mb-2">
               Posted {timeAgo(internship.createdAt)}
@@ -153,7 +157,6 @@ const ApplyInternshipPage = () => {
               ))}
             </div>
           </div>
-          {/* --- NEW: Display Application Start and End Dates --- */}
           <div className="text-gray-600 text-sm mt-4 bg-teal-50 p-3 rounded-md border border-teal-100">
             <p className="font-semibold">
               Application Period:
@@ -216,21 +219,25 @@ const ApplyInternshipPage = () => {
               />
             </div>
           </div>
-
-
+          
+          {/* File Upload Input for Resume */}
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="resumeUrl">
-              Resume URL (Optional, uses profile resume if empty)
+            <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="resumeFile">
+              Upload Resume (PDF, PNG, JPG, JPEG)
             </label>
             <input
-              type="url"
-              id="resumeUrl"
-              name="resumeUrl"
-              className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition duration-200"
-              value={resumeUrl}
-              onChange={(e) => setResumeUrl(e.target.value)}
-              placeholder="e.g., https://yourportfolio.com/resume.pdf"
+              type="file"
+              id="resumeFile"
+              name="resumeFile"
+              className="block w-full text-sm text-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 transition duration-200"
+              accept=".pdf,.png,.jpg,.jpeg"
+              onChange={(e) => setResumeFile(e.target.files[0])}
             />
+            {resumeFile && (
+              <p className="text-sm text-gray-500 mt-2">
+                Selected file: {resumeFile.name}
+              </p>
+            )}
           </div>
 
           <div className="flex items-center justify-center mt-8">
