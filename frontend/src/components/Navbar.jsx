@@ -51,27 +51,18 @@ const Navbar = () => {
 <div className="hidden md:flex items-center space-x-6">
   {/* YouTube Icon with strong blinking + glowing effect */}
   <a
-    href="https://www.youtube.com/shorts/JpCDJmvy81c" // 🔗 Replace with your actual YouTube link
-    target="_blank"
-    rel="noopener noreferrer"
-    className="relative flex items-center justify-center text-red-600 hover:scale-110 transition-transform duration-300"
-  >
-    {/* Glowing pulse background */}
-    <span className="absolute w-12 h-12 bg-red-300 rounded-full blur-lg opacity-40 animate-youtubeGlow"></span>
-
-
-    {/* Icon itself */}
-    {/* Play Icon with gentle yet noticeable blink */}
-<a
   href="https://www.youtube.com/shorts/JpCDJmvy81c"
   target="_blank"
   rel="noopener noreferrer"
   className="relative flex items-center justify-center text-red-600 hover:scale-110 transition-transform duration-300"
 >
-  {/* Light red glow background */}
+  {/* Outer glow */}
+  <span className="absolute w-12 h-12 bg-red-300 rounded-full blur-lg opacity-40 animate-youtubeGlow"></span>
+
+  {/* Inner glow */}
   <span className="absolute w-11 h-11 bg-red-400 rounded-full blur-md opacity-25 animate-softPulse"></span>
 
-  {/* Elegant Play Icon */}
+  {/* Icon */}
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -85,7 +76,6 @@ const Navbar = () => {
   </svg>
 </a>
 
-  </a>
 
   {/* Navigation Links */}
   <Link to="/internships" className="text-gray-700 hover:text-teal-600 font-medium">

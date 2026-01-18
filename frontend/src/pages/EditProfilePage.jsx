@@ -98,7 +98,7 @@ const EditProfilePage = () => {
       };
 
       const response = await axios.put(
-        'http://localhost:3000/api/auth/profile',
+        `${import.meta.env.VITE_API_URL}/api/auth/profile`,
         dataToUpdate,
         config
       );

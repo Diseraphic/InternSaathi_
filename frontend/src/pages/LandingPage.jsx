@@ -498,7 +498,7 @@ const ReelCard = ({ index, item }) => {
 
 
 
-{/* ABOUT US SECTION - Aesthetic and Engaging
+{/* ABOUT US SECTION - Aesthetic and Engaging 
 <section className="relative py-14 bg-gradient-to-br from-teal-50 via-emerald-100 to-white text-center overflow-hidden">
   {/* Decorative gradient circles for depth 
   <div className="absolute top-0 left-0 w-48 h-48 bg-emerald-200 rounded-full blur-3xl opacity-30"></div>
@@ -526,7 +526,7 @@ const ReelCard = ({ index, item }) => {
         </p>
       </div>
 
-      {/* Card 3
+      {/* Card 3 
       <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-cyan-500">
         <div className="text-4xl mb-3">🤝</div>
         <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Approach</h3>
@@ -536,7 +536,7 @@ const ReelCard = ({ index, item }) => {
       </div>
     </div>
 
-    {/* Small Closing Tagline 
+    {/* Small Closing Tagline
     <p className="mt-10 text-sm text-gray-500 italic">
       “Shaping careers, one internship at a time.”
     </p>
@@ -564,7 +564,7 @@ const ReelCard = ({ index, item }) => {
       <footer className="bg-white text-gray-800 py-4 text-center "> 
         <div className="max-w-7xl mx-auto px-4"> 
           
-          {/* Powered by Section */} 
+          {/* Powered by Section */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-2 mt-2"> 
             <span className="text-gray-600 text-sm">Powered by</span> 
             <a 
@@ -579,7 +579,7 @@ const ReelCard = ({ index, item }) => {
                     onError={(e) => { e.target.src = "https://placehold.co/60x48/10B981/ffffff?text=Sunsys"; }}
                 /> 
             </a> 
-            {/* Sunsys LinkedIn (size 18)  */} 
+            {/* Sunsys LinkedIn (size 18)  */}
             <a 
               href="https://www.linkedin.com/company/sunsystechsol-pvt-ltd/" 
               target="_blank" 
